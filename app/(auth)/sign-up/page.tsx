@@ -1,6 +1,47 @@
+'use client';
+
+import {useForm} from "react-hook-form";
+import {Form} from "radix-ui";
+
 function SignUp() {
+    const {
+        register,
+        handleSubmit,
+        control,
+        formState: {errors, isSubmitting}
+    } = useForm<SignUpFormData>({
+        defaultValues: {
+            fullName: '',
+            email: '',
+            password: '',
+            country: "us",
+            investmentGoals: 'Growth',
+            riskTolerance: 'Medium',
+            preferredIndustry: 'Technology',
+        },
+        mode: 'onBlur'
+    })
+    const onSubmit = async (data: SignUpFormData) => {
+        try{
+            console.log(data);
+        }
+        catch(error){
+            console.log(error);
+        }
+    }
+
     return (
-        <div></div>
+        <>
+            <h1 className="form-title">
+                Sign Up & Personalize
+            </h1>
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+
+                <button type="submit" disabled={isSubmitting} className="yellow-btn w-full mt-5">
+                    {isSubmitting ? 'Creating Account': "Start your Investing Journey"}
+                </button>
+            </form>
+        </>
     );
 }
 
