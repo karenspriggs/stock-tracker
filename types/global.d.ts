@@ -25,6 +25,17 @@ declare global {
         disabled?: boolean;
         value?: string;
     };
+
+    type SelectFieldProps = {
+        name: string;
+        label: string;
+        placeholder: string;
+        options: readonly Option[];
+        control: Control;
+        error?: FieldError;
+        required?: boolean;
+    };
+
 }
 
 export {}

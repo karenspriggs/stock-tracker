@@ -4,6 +4,8 @@ import {useForm} from "react-hook-form";
 import {Form} from "radix-ui";
 import InputField from "@/components/forms/inputField";
 import {error} from "next/dist/build/output/log";
+import SelectField from "@/components/forms/SelectField";
+import {INVESTMENT_GOALS, PREFERRED_INDUSTRIES, RISK_TOLERANCE_OPTIONS} from "@/lib/constants";
 
 function SignUp() {
     const {
@@ -65,6 +67,36 @@ function SignUp() {
                     register={register}
                     error={errors.password}
                     validation={{ required: 'Password is required', minLength: 8 }}
+                />
+
+                <SelectField
+                    name="investmentGoals"
+                    label="Investment Goals"
+                    placeholder="Select your investment goal"
+                    options={INVESTMENT_GOALS}
+                    control={control}
+                    error={errors.investmentGoals}
+                    required
+                />
+
+                <SelectField
+                    name="riskTolerance"
+                    label="Risk Tolerance"
+                    placeholder="Select your risk tolerance"
+                    options={RISK_TOLERANCE_OPTIONS}
+                    control={control}
+                    error={errors.riskTolerance}
+                    required
+                />
+
+                <SelectField
+                    name="preferredIndustry"
+                    label="Preferred Industry"
+                    placeholder="Select your preferred industry"
+                    options={PREFERRED_INDUSTRIES}
+                    control={control}
+                    error={errors.preferredIndustry}
+                    required
                 />
 
                 <button type="submit" disabled={isSubmitting} className="yellow-btn w-full mt-5">
