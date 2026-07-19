@@ -6,6 +6,7 @@ import InputField from "@/components/forms/inputField";
 import {error} from "next/dist/build/output/log";
 import SelectField from "@/components/forms/SelectField";
 import {INVESTMENT_GOALS, PREFERRED_INDUSTRIES, RISK_TOLERANCE_OPTIONS} from "@/lib/constants";
+import {CountrySelectField} from "@/components/forms/CountrySelectField";
 
 function SignUp() {
     const {
@@ -67,6 +68,14 @@ function SignUp() {
                     register={register}
                     error={errors.password}
                     validation={{ required: 'Password is required', minLength: 8 }}
+                />
+
+                <CountrySelectField
+                    name="country"
+                    label="Country"
+                    control={control}
+                    error={errors.country}
+                    required
                 />
 
                 <SelectField

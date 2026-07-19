@@ -36,6 +36,13 @@ declare global {
         required?: boolean;
     };
 
+    type CountrySelectProps = {
+        name: string;
+        label: string;
+        control: Control;
+        error?: FieldError;
+        required?: boolean;
+    };
 }
 
 export {}
